@@ -31,7 +31,7 @@ Solution for puzzle 1.1: **2379**
 import numpy as np
 import itertools
 
-d = np.genfromtxt('../puzzles/1_2_christmas_cards.csv', 
+d = np.genfromtxt('1_2_christmas_cards.csv', 
                      dtype = int, 
                      delimiter = ',',
                      missing_values = '-',
@@ -65,7 +65,7 @@ Solution for puzzle 1.3: **1135113445**
 
 ## 1-4 Mystery Man - Follow the Trace
 
-**How to find it:** In the last post in the blog, there links to four images. One link is pointing to a youtube-video instead of the actual image. You can find the correct link by using one of the other images' links and replacing the filename by `screen.jpg`, correct link is `https://coding-challenge.festo.com/blog/images/screen.jpg`. Now you can read the two parts of the note on the screen, pointing to the github account named `fin-der-lohn`. On `github.com/fin-der-lohn` you find a repository. The solution code is in there, if you look at the older commit.
+**How to find it:** In the last post in the blog, there are links to four images. One link is pointing to a youtube-video instead of the actual image. You can find the correct link by using one of the other images' links and replacing the filename by `screen.jpg`, correct link is `https://coding-challenge.festo.com/blog/images/screen.jpg`. Now you can read the two parts of the note on the screen, pointing to the github account named `fin-der-lohn`. On `github.com/fin-der-lohn` you find a repository. The solution code is in there, if you look at the older commit.
 
 Solution for puzzle 1.4: **1337potato**
 
@@ -92,7 +92,7 @@ Solution for puzzle 2.1: **1001270**
 import numpy as np
 import itertools
 
-d = np.genfromtxt('../puzzles/2_2_christmas_shopping.csv', 
+d = np.genfromtxt('2_2_christmas_shopping.csv', 
                      dtype = int, 
                      delimiter = ',',
                      missing_values = '-',
@@ -169,7 +169,7 @@ Solution for puzzle 3.1: **1185367183**
 import numpy as np
 import itertools
 
-d = np.genfromtxt('../puzzles/3_2_delivery_service.csv', 
+d = np.genfromtxt('3_2_delivery_service.csv', 
                      dtype = int, 
                      delimiter = ',',
                      missing_values = '-',
@@ -180,15 +180,6 @@ s = set()
 for order in itertools.permutations(stops):
     s.add(order)
     
-def check_three_or_less(x):
-    is_loaded = np.zeros(5, bool)
-    for i in x:
-        is_loaded[i-1] = not is_loaded[i-1]
-        load = sum(is_loaded)
-        if load > 3:
-            return False
-    return True
-
 def process(raw_order):
     is_loaded = np.zeros(5,bool)
     order = []
@@ -227,11 +218,13 @@ Solution for puzzle 3.2: **r2c2r1r5r4c4r3c5c1c3**
 
 ## 3-3 The Boss - Cable Spaghetti
 
+![cable spaghetti solution](cable_spaghetti_solution.png)
+
 (Cable lengths: 78, 38 and 11)
 
 **Solution strategies:** This puzzle is a variant of a "Slither link" puzzle (German: Rundweg). [Wikipedia](https://en.wikipedia.org/wiki/Slitherlink) has quiet a list of solution strategies. In this puzzle, though, we cannot use any techniques that avoid closed loops. Instead at some points, we have to make sure the right cable goes into the right plug.
 
-Solution for puzzle 3.3: 783811
+Solution for puzzle 3.3: **783811**
 
 ## 3-4 Mystery Man - Imagine
 
